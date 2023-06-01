@@ -1,0 +1,26 @@
+<form class="formgrid grid" #loginForm="ngForm">
+    <div class="field col">
+        <label for="nombre">Nombre: {{apiService.medicamento.nombre}}</label>
+    </div>
+    <div class="field col">
+        <label for="laboratorioFabrica">Laboratorio Fabrica: {{apiService.medicamento.laboratorioFabrica}}</label>
+    </div>
+    <div class="field col">
+        <label for="fechaFabricacion">Fecha Fabricacion: {{apiService.medicamento.fechaFabricacion}}</label>
+    </div>
+    <div class="field col">
+        <label for="fechaVencimiento">Fecha Vencimiento: {{apiService.medicamento.fechaVencimiento}}</label>
+    </div>
+    <div class="field col">
+        <label for="cantidadStock">Cantidad de Stock: {{apiService.medicamento.cantidadStock}}</label>
+    </div>
+    <div class="field col">
+        <label for="valor">Valor Unitario: {{apiService.medicamento.valor}}</label>
+    </div>
+
+    <div class="field col">
+        <label for="cantidadStock">Cantidad a comprar</label>
+        <input id="cantidadStock" type="number" name="cantidadStock" pInputText [(ngModel)]="cantidadComprar" required min="1" />
+    </div>
+    <p-button label="Guardar" (click)="save()" [disabled]="(!loginForm.valid) || (cantidadComprar > apiService.medicamento.cantidadStock)"></p-button>
+</form>

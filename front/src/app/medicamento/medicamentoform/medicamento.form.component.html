@@ -1,0 +1,30 @@
+
+<p-card header="{{title}}" class="card">
+    <form class="formgrid grid" #loginForm="ngForm">
+        <div class="field col">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" name="nombre" pInputText [(ngModel)]="request.nombre" required minlength="3" />
+        </div>
+        <div class="field col">
+            <label for="laboratorioFabrica">Laboratorio Fabrica</label>
+            <input id="laboratorioFabrica" type="text" name="laboratorioFabrica" pInputText [(ngModel)]="request.laboratorioFabrica" required minlength="3" />
+        </div>
+        <div class="field col">
+            <label for="fechaFabricacion">Fecha Fabricacion</label>
+            <p-calendar id="fechaFabricacion" name="fechaFabricacion" [(ngModel)]="request.fechaFabricacion" [showIcon]="true"></p-calendar>
+        </div>
+        <div class="field col">
+            <label for="fechaVencimiento">Fecha Vencimiento</label>
+            <p-calendar id="fechaVencimiento" name="fechaVencimiento" [(ngModel)]="request.fechaVencimiento" [showIcon]="true"></p-calendar>
+        </div>
+        <div class="field col">
+            <label for="cantidadStock">Cantidad de Stock</label>
+            <input id="cantidadStock" type="number" name="cantidadStock" pInputText [(ngModel)]="request.cantidadStock" required minlength="3" />
+        </div>
+        <div class="field col">
+            <label for="valor">Valor Unitario</label>
+            <input id="valor" type="number" name="valor" pInputText [(ngModel)]="request.valor" required minlength="3" />
+        </div>
+        <p-button label="Guardar" (click)="save()" [disabled]="!loginForm.valid"></p-button>
+    </form>
+</p-card>
